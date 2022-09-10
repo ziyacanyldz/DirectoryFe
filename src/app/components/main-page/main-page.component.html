@@ -1,0 +1,73 @@
+
+<nav class="navbar" style="background-color:#eea29a;">
+    <div class="container-fluid">
+      <a class="navbar-brand">Contact Directory
+      </a>
+      <form class="d-flex" role="search" >
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText"[ngModelOptions]="{standalone: true}">
+      </form>
+    </div>
+  </nav>
+  <div class="row">
+  <div class="col-md-4" style="padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;">
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Adı Soyadı:</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{clickInformation[1]}}" #inpFullName>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Telefon Numarası:</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" value="{{clickInformation[3]}}" #inpTelNo>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Ev/iş:</label>
+        <select class="form-control" id="exampleFormControlSelect1" value="{{clickInformation[2]}}" #inpStatus>
+          <option>Ev</option>
+          <option>iş</option>
+         
+        </select>
+      </div>
+      <div class="mb-3 form-check">
+      </div>
+      <div >
+      <button type="submit" class="btn btn-primary" style="margin-left: 1%;" (click) = "btnEkle(inpFullName.value,inpTelNo.value,inpStatus.value)">Ekle</button>
+      <button type="submit" class="btn btn-primary" style="margin-left: 1%;" (click) = "btnSil()">Sil</button>
+      <button type="submit" class="btn btn-primary" style="margin-left: 1%;" (click) = "btnGuncelle(inpFullName.value,inpTelNo.value,inpStatus.value)">Düzenle</button>
+    </div>
+    </form>
+  
+  </div>
+  
+  
+  <div class="col-md-7" style="padding-top: 50px;">
+    <div class="bd-example">
+      <table class="table table-striped table-hover">
+          <thead>
+        <tr>
+          
+          <th scope="col">Adı Soyadı</th>
+          <th scope="col">Gurubu</th>
+          <th scope="col">Telefon Numarası</th>
+          <th scope="col">Tarih</th>
+  
+  
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of list | userSearch:searchText" (click)="click(item.kayitId,item.adiSoyadi,item.grubu,item.telefon)">
+        <tr>
+          
+          <td #adisoyadi>{{item.adiSoyadi}}</td>
+          <td #grubu>{{item.grubu}}</td>
+          <td #telefon >{{item.telefon}}</td>
+          <td #tarih>{{item.tarih}}</td> 
+        </tr>
+        
+      </tbody>
+    
+      </table>
+    </div>
+  </div>
+  </div>
