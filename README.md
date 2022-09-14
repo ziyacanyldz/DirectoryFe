@@ -1,5 +1,7 @@
-# TelephoneDirectory
+Kayıt sistemi projemin Frond End kodları. Backend kodlarını github hesabımda DirektoryBe adli repository ile paylaştım.
+Projemin çalışma anındaki videosu. https://www.youtube.com/watch?v=tS-q0aaLN5Y&t=1s
 
+# TelephoneDirectory
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 
 ## Development server
